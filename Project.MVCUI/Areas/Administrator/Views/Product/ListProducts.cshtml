@@ -1,0 +1,68 @@
+﻿@model List<Product>
+@{
+    ViewBag.Title = "ListProducts";
+}
+
+<section class="panel">
+    <header class="panel-heading">
+        Yeni Kategori eklemek icin @Html.ActionLink("tıklayınız", "AddProduct")
+    </header>
+    <div class="panel-body">
+        <div class="adv-table">
+            <table cellpadding="0" cellspacing="0" border="0" class="display table table-bordered" id="hidden-table-info">
+                <thead>
+                    <tr>
+                        <!--Bu DataTable'da sütun baslıklarıyla icerikteki hücrelerin bir tutmasına cok dikkat etmelisiniz yoksa DataTable'in JAvaScript'i patlar'-->
+                        <th>ID</th>
+                        <th>Urun Ismi</th>
+                        <th>Urun Fiyatı</th>
+                        <th>Urun Kategorisi</th>
+                        <th>Urun Stok</th>
+                        <th>Resim</th>
+                        <th>Veri Durumu</th>
+                        <th>Guncelle</th>
+                        <th>Sil</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (Product item in Model)
+                    {
+                        <tr class="gradeU">
+                            <td>@item.ID</td>
+                            <td>@item.ProductName</td>
+                            <td class="hidden-phone">@item.UnitPrice</td>
+                            @if (item.Category == null)
+                            {
+                                <td class="hidden-phone">Kategorisi yok</td>
+
+                            }
+                            else
+                            {
+                                <td class="hidden-phone">@item.Category.CategoryName</td>
+                            }
+
+                            <td class="hidden-phone">@item.UnitsInStock</td>
+
+
+                            <th class="hidden-phone">
+
+                                <img width="30" height="30" title="@item.ProductName" src="@item.ImagePath" />
+
+                            </th>
+
+
+                            <td class="center hidden-phone"> @item.Status</td>
+                            <td class="center hidden-phone">@Html.ActionLink("Guncelle", "UpdateProduct", new { id = item.ID }, new { @class = "btn btn-warning" })</td>
+                            <td class="center hidden-phone">@Html.ActionLink("Sil", "DeleteProduct", new { id = item.ID }, new { @class = "btn btn-danger" })</td>
+
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</section>
+<script src="~/Areas/Administrator/AdminScripts/AdminProductDTJ.js"></script>

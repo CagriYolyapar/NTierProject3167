@@ -1,0 +1,2 @@
+﻿1 => UserRole'un class olarak acılması ve normalizasyonu (buradaki enum sisteminden farklı olarak denenebilir)
+2=>  Product icin olusturulmus olan image'in bire cok bir normalizasyon sisteminde farklı olarak entegre edilmesi (Image class'i acılarak)

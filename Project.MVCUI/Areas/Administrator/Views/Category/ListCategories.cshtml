@@ -1,0 +1,48 @@
+﻿@model ListCategoriesPageVM
+
+
+@{
+    ViewBag.Title = "ListCategories";
+}
+
+<section class="panel">
+    <header class="panel-heading">
+       Yeni Kategori eklemek icin @Html.ActionLink("tıklayınız","AddCategory")
+    </header>
+    <div class="panel-body">
+        <div class="adv-table">
+            <table cellpadding="0" cellspacing="0" border="0" class="display table table-bordered" id="hidden-table-info">
+                <thead>
+                    <tr>
+                        <!--Bu DataTable'da sütun baslıklarıyla icerikteki hücrelerin bir tutmasına cok dikkat etmelisiniz yoksa DataTable'in JAvaScript'i patlar'-->
+                        <th>ID</th>
+                        <th>Kategori Ismi</th>
+                        <th class="hidden-phone">Kategori Acıklaması</th>
+                        <th class="hidden-phone">Veri Durumu</th>
+                        <th class="hidden-phone">Guncelle</th>
+                        <th class="hidden-phone">Sil</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (CategoryResponseModel item in Model.Categories)
+                    {
+                        <tr class="gradeU">
+                            <td>@item.ID</td>
+                            <td> @Html.ActionLink(item.CategoryName, "ListProducts","Product", new {id=item.ID},null)       </td>
+                            <td class="hidden-phone">@item.Description</td>
+                            <td class="center hidden-phone"> @item.Status</td>
+                            <td class="center hidden-phone">@Html.ActionLink("Guncelle", "UpdateCategory", new { id = item.ID }, new {@class="btn btn-warning"})</td>
+                            <td class="center hidden-phone">@Html.ActionLink("Sil", "DeleteCategory", new { id = item.ID }, new {@class="btn btn-danger"})</td>
+
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</section>
+
+<script src="~/Areas/Administrator/AdminScripts/AdminCategoryDTJ.js"></script>

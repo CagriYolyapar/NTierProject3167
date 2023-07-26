@@ -1,0 +1,17 @@
+﻿1 => Proje N-Tier mimari paterninin hafif bir versiyonunda yazılacaktır(Soft)
+
+2=> Projede acılacak katmanlar
+
+ENTITIES,
+MAP,
+DAL,
+BLL,
+Common (Ortak kullanılacak sınıfların tutulacagı katman olacaktır)
+MVCUI
+
+
+3=> Projede degişken isimleri degişkenler local variable oldugu sürece camelCase, field olduğu sürce basında _ olarak camelCase ; Property , metot ve class isimleri PascalCase standartlarında yazılacaktır...Projede Türkçe karakter kullanılmayacaktır... Class isimleri tekil acılacaktır.
+
+4=> Mimarideki katman isimleri ilgili projenin isminden sonra nokta koyularak katmansal bir takıyla bitecektir(Project.BLL)
+
+5=> Tasarım patternlerinden SingletonPattern kullanılacaktır... Proje mimarisinin elverişli olduğu durumlarda ek Tasarım Patternleri kullanılabilir...
