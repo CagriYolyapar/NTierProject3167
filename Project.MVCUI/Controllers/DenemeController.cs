@@ -6,14 +6,12 @@ using System.Web.Mvc;
 
 namespace Project.MVCUI.Controllers
 {
-    public class HomeController : Controller
+    public class DenemeController : Controller
     {
-        // GET: Homeasdad
-        public ActionResult Login()
+        // GET: Deneme
+        public ActionResult Index()
         {
             return View();
         }
-
-      
     }
 }
