@@ -8,7 +8,7 @@ namespace Project.MVCUI.Controllers
 {
     public class HomeController : Controller
     {
-        // GET: Homeasdad
+        // GET: Homeasdad Şampiyon Fenerbahçe
         public ActionResult Login()
         {
             return View();
